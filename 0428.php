@@ -305,20 +305,24 @@
         <br>
         <li>以交叉計算結果呈現的九九乘法表</li>
         <style>
-            table{
+            table {
                 border-collapse: collapse;
                 margin: 20px auto;
                 font-size: 16px;
             }
-            th,td{
-                border: 1px solid   #555;
+
+            th,
+            td {
+                border: 1px solid #555;
                 padding: 10px 15px;
                 text-align: center;
             }
-            th{
+
+            th {
                 background-color: #f2f2f2;
             }
-            td{
+
+            td {
                 background-color: #fff;
             }
         </style>
@@ -328,24 +332,80 @@
             // 表格標題列
             echo "<tr>";
             echo "<th></th>"; // 左上角空白
-
+            
             for ($i = 1; $i <= 9; $i++) {
                 echo "<th>$i</th>";
             }
             echo "</tr>";
-            for( $i = 1; $i <= 9; $i++){
+            for ($i = 1; $i <= 9; $i++) {
                 echo "<tr>";
                 echo "<th> $i</th>";
-                for($j = 1; $j <= 9; $j++){
+                for ($j = 1; $j <= 9; $j++) {
                     echo "<td>" . ($i * $j) . "</td>";
                 }
                 echo "</tr>";
             }
 
 
-        
+
             ?>
         </table>
+
+        <br>
+        <li>票價表</li>
+        <style>
+            table {
+                border-collapse: collapse;
+                margin: 20px auto;
+                font-size: 16px;
+            }
+
+            th,
+            td {
+                border: 1px solid #555;
+                padding: 10px 15px;
+                text-align: center;
+            }
+
+            th {
+                background-color: #f2f2f2;
+            }
+
+            td {
+                background-color: #fff;
+            }
+        </style>
+        <table border="1">
+            <?php
+
+            // 表格標題列
+            echo "<tr><th></th>";// 左上角空白
+            
+            //標題列
+            for ($i = 1; $i <= 9; $i++) {
+                echo "<th>$i</th>";
+            }
+            echo "</tr>";
+
+            //表格內容
+            for ($i = 1; $i <= 9; $i++) {
+                echo "<tr>";
+                echo "<th> $i</th>";
+                for ($j = 1; $j <= 9; $j++) {
+                    if ($j >= $i) {
+                        echo "<td>" . ($i * $j) . "</td>";
+                    }else{
+                        echo "<td></td>";
+                    }
+                }
+                echo "</tr>";
+            }
+
+
+
+            ?>
+        </table>
+
 
     </ul>
 
