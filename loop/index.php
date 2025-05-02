@@ -20,13 +20,14 @@
             border: 4px dashed #E16B8C;
             text-align: left;
             color: #333;
+            font-size: 20px;
         }
 
         h2,
         h3,
         h5 {
             color: #E16B8C;
-            font-size: 1.8em;
+            /* font-size: 1.8em; */
             margin-top: 40px;
         }
 
@@ -70,14 +71,14 @@
         h1 {
             text-align: center;
             color: #E16B8C;
-            font-size: 2.5em;
+            /* font-size: 2.5em; */
             margin-bottom: 30px;
         }
 
         
         @media (max-width: 600px) {
             h1 {
-                font-size: 2em;
+                /* font-size: 2em; */
             }
         }
     </style>
@@ -126,26 +127,8 @@
     }
     ?>
 
-    <h2>🎲 威力彩電腦選號（不重覆號碼，使用 while 迴圈）</h2>
-    <ul>
-        <li>使用亂數函式 rand($a, $b) 來產生號碼</li>
-        <li>將產生的號碼存入陣列中</li>
-        <li>每次存入時會先檢查是否重覆</li>
-        <li>完成選號後將陣列內容印出</li>
-    </ul>
-    <?php
-    $wu = [];
-    while (count($wu) < 6) {
-        $num = rand(1, 49);
-        if (!in_array($num, $wu)) {
-            $wu[] = $num;
-        }
-    }
-    echo implode(", ", $wu);
-    ?>
-
     <h2>📊 九九乘法表</h2>
-    <h5>🧮 表格排列</h5>
+    <h3>🧮 表格排列</h3>
     <table>
         <?php
         for ($i = 1; $i <= 9; $i++) {
@@ -158,7 +141,7 @@
         ?>
     </table>
 
-    <h5>🌸 交叉結果呈現</h5>
+    <h3>🌸 交叉結果呈現</h3>
     <table>
         <?php
         echo "<tr><th></th>";
@@ -200,6 +183,88 @@
         ?>
     </table>
 
+    <h2>📈 使用 while 迴圈尋找字元</h2>
+    <h3>找英文字</h3>
+    <?php
+        $string = "Today is sunny day.";
+        $target = "e";  //要找的字
+        $is_find=false; //找到沒
+        $counter = 0;   //第幾個位置
+        while ($is_find==false && $counter <strlen($string)) { //當還沒找到字且字串長度還沒到
+            if($string[$counter] == $target){
+                $is_find = true;
+            }
+            $counter++;
+        }
+        if($is_find){
+            echo "目標字元".$target."在字串的第".$counter."個位置";
+        }else{
+            echo "字串：".$string."<br>";
+            echo "字串中沒有你要找的".$target."字元";
+        }
+    ?>
+
+    <h3>找中文單字</h3>
+    <?php
+        $string = "今天是個適合出遊的日子";
+        $target = "個";  //要找的字
+        $is_find=false; //找到沒
+        $counter = 0;   //第幾個位置
+        while ($is_find==false && $counter <mb_strlen($string)) { //當還沒找到字且字串長度還沒到
+            if(mb_substr($string,$counter,1) == $target){
+                $is_find = true;
+            }
+            $counter++;
+        }
+        if($is_find){
+            echo $string."<br>";
+            echo "目標字元".$target."在字串的第".$counter."個位置";
+        }else{
+            echo "字串：".$string."<br>";
+            echo "字串中沒有你要找的".$target."字元";
+        }
+    ?>
+
+    <h3>找中文詞</h3>
+    <?php
+        $string = "今天是個適合出遊的日子";
+        $target = "出遊";  //要找的字
+        $is_find=false; //找到沒
+        $counter = 0;   //第幾個位置
+        while ($is_find==false && $counter <mb_strlen($string)) { //當還沒找到字且字串長度還沒到
+            if(mb_substr($string,$counter,2) == $target){
+                //mb_substr($string,$counter,2)  從第 $counter 個字（index=4）開始，取 2 個字 → 出遊
+                $is_find = true;
+            }
+            $counter++;
+        }
+        if($is_find){
+            echo $string."<br>";
+            echo mb_substr($string, $counter-1, 2)."在字串的第".$counter."個位置";
+            
+        }else{
+            echo "字串：".$string."<br>";
+            echo "字串中沒有你要找的".$target."字元";
+        }
+    ?>
+
+    <h2>🎲 威力彩電腦選號（不重覆號碼，使用 while 迴圈）</h2>
+    <ul>
+        <li>使用亂數函式 rand($a, $b) 來產生號碼</li>
+        <li>將產生的號碼存入陣列中</li>
+        <li>每次存入時會先檢查是否重覆</li>
+        <li>完成選號後將陣列內容印出</li>
+    </ul>
+    <?php
+    $wu = [];
+    while (count($wu) < 6) {
+        $num = rand(1, 49);
+        if (!in_array($num, $wu)) {
+            $wu[] = $num;
+        }
+    }
+    echo implode(", ", $wu); //implode() 是一個 將陣列元素合併成一個字串 的函數
+    ?>
 </body>
 
 </html>
