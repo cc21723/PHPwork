@@ -79,13 +79,15 @@
 </head>
 
 <body>
-    <ul>
-        <li><a href="./var/index.php">變數</a></li>
-        <li><a href="./select/index.php">判斷式</a></li>
-        <li><a href="./loop/index.php">迴圈-重複結構</a></li>
-        <li><a href="./loop/star.php">迴圈-畫星星</a></li>
-        <li><a href="./array/index.php">陣列</a></li>
-    </ul>
+    <div class="container">
+        <ul>
+            <li><a href="./var/index.php">變數</a></li>
+            <li><a href="./select/index.php">判斷式</a></li>
+            <li><a href="./loop/index.php">迴圈-重複結構</a></li>
+            <li><a href="./loop/starts.php">迴圈-畫星星</a></li>
+            <li><a href="./array/index.php">陣列</a></li>
+        </ul>
+    </div>
 </body>
 
 </html>
