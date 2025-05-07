@@ -247,24 +247,6 @@
             echo "字串中沒有你要找的".$target."字元";
         }
     ?>
-
-    <h2>🎲 威力彩電腦選號（不重覆號碼，使用 while 迴圈）</h2>
-    <ul>
-        <li>使用亂數函式 rand($a, $b) 來產生號碼</li>
-        <li>將產生的號碼存入陣列中</li>
-        <li>每次存入時會先檢查是否重覆</li>
-        <li>完成選號後將陣列內容印出</li>
-    </ul>
-    <?php
-    $wu = [];
-    while (count($wu) < 6) {
-        $num = rand(1, 49);
-        if (!in_array($num, $wu)) {
-            $wu[] = $num;
-        }
-    }
-    echo implode(", ", $wu); //implode() 是一個 將陣列元素合併成一個字串 的函數
-    ?>
 </body>
 
 </html>
