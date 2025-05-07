@@ -277,9 +277,9 @@
         $d[$startYear + $j] = $s[$j % 10] . $e[$j % 12];
     }
 
-    echo "西元". $year . "年是" . $d[$year] . "<br>";
+    echo "西元" . $year . "年是" . $d[$year] . "<br>";
 
-    $d= [];
+    $d = [];
     for ($j = 0; $j < 60; $j++) {
         $d[] = $s[$j % 10] . $e[$j % 12];
     }
@@ -287,8 +287,38 @@
     // print_r($d);
     // echo "</pre>";
     
-    $yy=2126;
-    echo "西元". $yy. "是" . $d[($yy-4)%60] ."年";
+    $yy = 2126;
+    echo "西元" . $yy . "是" . $d[($yy - 4) % 60] . "年";
+    ?>
+
+    <h1>請設計一支程式，在不產生新陣列的狀況下，<br>將一個陣列的元素順序反轉(利用迴圈)</h1>
+    <ul>
+        <li>例：$a=[2,4,6,1,8] 反轉後 $a=[8,1,6,4,2]</li>
+    </ul>
+    <?php
+    $a = [2,4,6,1,8];
+
+    echo "<pre>";
+    print_r($a);
+    echo "</pre>";
+
+    //利用迴圈反轉
+    // count($a); //計算陣列個數
+    // floor取陣列要交換的次數，取整數
+    for ($i = 0; $i < floor(count($a)/2); $i++) {
+        $temp=$a[$i];
+        $a[$i]=$a[count($a)-1-$i];
+        $a[count($a)-1-$i] = $temp;
+    }
+
+    echo "<pre>";
+    print_r($a);
+    echo "</pre>";
+
+    echo "<pre>";
+    echo "使用array_reverse反轉陣列";
+    print_r(array_reverse($a)); //直接將陣列反轉    
+    echo "</pre>";
     ?>
 
 
