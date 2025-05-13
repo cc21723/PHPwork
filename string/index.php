@@ -17,8 +17,9 @@
             background-color: #fff0f5;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
             min-height: 100vh;
+            padding: 40px 20px;
         }
 
         .container {
@@ -26,19 +27,74 @@
             max-width: 960px;
             background-color: #fff;
             border-radius: 16px;
-            padding: 30px 20px;
+            padding: 40px 30px;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
             border: 4px dashed #E16B8C;
-            text-align: left;
+            line-height: 1.8;
+            color: #333;
         }
 
         h1 {
             color: #E16B8C;
-            font-size: 2.5em;
+            font-size: 2.8em;
             margin-bottom: 30px;
+            text-align: center;
         }
-        a{
+
+        h2 {
+            color: #C94A70;
+            font-size: 1.8em;
+            margin-top: 40px;
+            border-left: 6px solid #E16B8C;
+            padding-left: 10px;
+        }
+
+        p {
+            margin: 10px 0;
+            font-size: 1.1em;
+        }
+
+        ul,
+        ol {
+            padding-left: 1.5em;
+            font-size: 1.05em;
+        }
+
+        a {
+            color: #E16B8C;
             text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: #c74369;
+        }
+
+        code {
+            background-color: #fce4ec;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 1em;
+        }
+
+        hr {
+            border: none;
+            border-top: 2px dashed #E16B8C;
+            margin: 40px 0;
+        }
+
+        /* 加強 span 顯示的段落效果 */
+        span[style*="color"] {
+            display: inline-block;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+
+        /* 讓內容不會擠在一起 */
+        br {
+            margin-bottom: 10px;
         }
     </style>
 </head>
@@ -160,22 +216,22 @@
         //在指定的關鍵字中加上url
         $url = ['', 'https://www.pinterest.com/pin/36310340742394973/', 'https://www.pinterest.com/pin/127508233193491860/'];
         // foreach ($keywords as $index => $keyword) {
-            // $str = str_replace($keyword, "<span style='$style[$index]'>$keyword</span>", $str);
-            
-            // 如果是 "貓貓"，加上超連結及CSS
-            // if ($word === "貓貓") {
-                //     $replacement = "<a href='$url' target='_blank'><span style='{$style[$index]}'>$word</span></a>";
-                // } else {
-                    //     $replacement = "<span style='{$style[$index]}'>$word</span>";
-                    // }
-                    // $str = str_replace($word, $replacement, $str);
+        // $str = str_replace($keyword, "<span style='$style[$index]'>$keyword</span>", $str);
+        
+        // 如果是 "貓貓"，加上超連結及CSS
+        // if ($word === "貓貓") {
+        //     $replacement = "<a href='$url' target='_blank'><span style='{$style[$index]}'>$word</span></a>";
+        // } else {
+        //     $replacement = "<span style='{$style[$index]}'>$word</span>";
         // }
-                    
+        // $str = str_replace($word, $replacement, $str);
+        // }
+        
         foreach ($keywords as $index => $keyword) {
             // 如果有 URL 加上超連結
             if ($url[$index] != '') {
                 $strwithurl = "<a href='$url[$index]' style='$style[$index]'>$keyword</a>";
-            }else{
+            } else {
                 $strwithurl = "<span style='$style[$index]'>$keyword</span>";
             }
             // 包上樣式
