@@ -211,42 +211,37 @@
 
             //整個6週 (前後月份日期)
             /*for ($i = 0; $i < 6; $i++) {
-                echo "<tr>";
-                for ($j = 0; $j < 7; $j++) {
-                    $day = $j  + ($i * 7) - $firstDayWeek;
-                    $date = date("Y-m-d",strtotime("$day days",strtotime($firstDay)));
-                    echo "<td>";
-                    echo $date;
-                    echo "</td>";
-                }
-                echo "</tr>";
-            }*/
+            //     echo "<tr>";
+            //     for ($j = 0; $j < 7; $j++) {
+            //         $day = $j  + ($i * 7) - $firstDayWeek;
+            //         $date = date("Y-m-d",strtotime("$day days",strtotime($firstDay)));
+            //         echo "<td>";
+            //         echo $date;
+            //         echo "</td>";
+            //     }
+            //     echo "</tr>";
+            // }*/
 
 
-            //顯示今天
+            // //顯示今天
             for ($i = 0; $i < $theDaysOfMonth / 7; $i++) {
                 echo "<tr>";
-
                 //用 $j 控制每一週的七天（0=日～6=六）
                 for ($j = 0; $j < 7; $j++) {
                     //只有當月日期
                     //計算當前格子代表的是幾號
                     $day = $j + ($i * 7) - $firstDayWeek; //減掉 $firstDayWeek 是為了讓 1 號從正確的星期幾開始
-            
                     // 以 $firstDay 為基準，加上 $day 天，取得對應的時間戳記
                     $timestamp = strtotime(" $day days", strtotime($firstDay));
-
                     // 把時間戳記轉為日期字串（例如 2025-05-03）
                     $date = date("Y-m-d", $timestamp);
                     $class = "";
-
                     //假日是紅色
                     // date("N")：取得星期幾（1=一, ..., 7=日），>5 表示週六日
                     // 加上 holiday 樣式類別
                     if (date("N", $timestamp) > 5) {
                         $class = $class . " holiday ";
                     }
-
                     //今天以前是灰色
                     if ($timestamp < strtotime($today)) {
                         $class = $class . "pass-date";
@@ -255,7 +250,7 @@
                     if ($today == $date) {
                         $class = $class . " today";
                         // echo "<td class='today'>";
-            
+
                         //其他月份
                     } else if (date("m", $timestamp) != date("m", strtotime($firstDay))) {
                         // echo "<td class='other-month'>";
@@ -290,7 +285,7 @@
                 }
                 echo "</tr>";
             }
-            ?>
+             ?>
         </table>
         <?php
 
