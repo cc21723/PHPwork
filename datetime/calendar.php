@@ -287,8 +287,6 @@
                     echo "</div>";
                     echo "</td>";
 
-
-
                 }
                 echo "</tr>";
             }
