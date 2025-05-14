@@ -79,40 +79,6 @@
             margin: 40px 0;
         }
 
-        .calendar {
-            display: flex;
-            flex-wrap: wrap;
-            width: 350px;
-            /* 可依實際大小調整 */
-            border: 1px solid #ccc;
-        }
-
-        .day,
-        .empty {
-            width: calc(100% / 7);
-            height: 50px;
-            box-sizing: border-box;
-            border: 1px solid #ddd;
-            text-align: center;
-            line-height: 50px;
-            font-family: sans-serif;
-        }
-
-        .header {
-            font-weight: bold;
-            background-color: #f8f8f8;
-        }
-
-        .holiday {
-            background-color: #ffe6e6;
-            color: red;
-        }
-
-        .today {
-            background-color: #d0e6ff;
-            font-weight: bold;
-            color: #004080;
-        }
 
       
     </style>
@@ -339,82 +305,6 @@
         ?>
         <hr>
 
-        <h2>線上月曆製作</h2>
-        <ul>
-            <li>以表格方式呈現整個月份的日期</li>
-            <li>可以在特殊日期中顯示資訊(假日或紀念日)</li>
-            <li>嘗試以block box或flex box的方式製作月曆</li>
-        </ul>
-        <?php
-        //1.要先知道當月第一天是星期幾 $w = date("w",strtotime($date));
-        //2.要知道當月有幾天 $days = date("t",strtotime($date));
-        //3.要知道當月有幾週
-        //4.畫月曆
-        
-
-        // 設定要顯示的月份
-        // $year = date("Y");
-        // $month = date("m");
-        // $date = "$year-$month-01"; // 設定當月的第一天
-        
-        // // 計算當月的天數
-        // $days = date("t", strtotime($date));
-
-        // // 計算當月的第一天是星期幾(0=日, 6=六)
-        // $firstDayOfWeek = date("w", strtotime($date));
-
-        // //// 特殊日（假日或紀念日）設定：格式為 'Y-m-d' => '說明'
-        // $specialDays = [
-        //     "$year-$month-01" => "勞動節放假 🎉",
-        //     "$year-$month-12" => "紀念日",
-        //     "$year-$month-30" => "端午節放假"
-        // ];
-
-        // $weeks = ceil(($days + $firstDayOfWeek) / 7); // 計算當月的週數
-        
-        // // 今日日期
-        // $today = date("Y-m-d");
-
-        // echo "<h2>月份：$year 年 $month 月</h2>";
-        // echo "<div class='calendar'>";
-
-        // // 星期標題列
-        
-        // $weekdays = ['日', '一', '二', '三', '四', '五', '六'];
-        // foreach ($weekdays as $day) {
-        //     echo "<div class='day header'>$day</div>";
-        // }
-
-        // // 前面空格
-        // for ($i = 0; $i < $firstDayOfWeek; $i++) {
-        //     echo "<div class='empty'></div>";
-        // }
-
-        // // 日期格子
-        // for ($d = 1; $d <= $days; $d++) {
-        //     $currentDate = sprintf("%s-%02d", "$year-$month", $d);
-        //     $class = 'day';
-
-        //     if (array_key_exists($currentDate, $specialDays)) {
-        //         $class .= ' holiday';
-        //     } elseif ($currentDate == $today) {
-        //         $class .= ' today';
-        //     }
-
-        //     // 加上 tooltip 顯示說明
-        //     $title = array_key_exists($currentDate, $specialDays) ? "title='{$specialDays[$currentDate]}'" : "";
-
-        //     echo "<div class='$class' $title>$d</div>";
-        // }
-
-        // echo "</div>";
-
-
-
-
-
-        ?>
-        <hr>
     </div>
 
 </body>
