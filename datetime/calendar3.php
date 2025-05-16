@@ -201,41 +201,41 @@
         echo "<div class='th-box'>五</div>";
         echo "<div class='th-box'>六</div>";
 
-
         //使用foreach迴圈印出日期
         foreach ($monthDays as $day) {
             echo "<div class='box'>";
-            echo "<div class= 'day-info'>";
-                echo "<div class= 'day-num'>";
-                if (isset($day['day'])) {
-                    echo $day["day"];
-                } else {
-                    echo "&nbsp";
-                }
-                echo "</div>";
+            echo "<div class='day-info'>";
 
-                echo "<div class= 'day-week'>";
-                if (isset($day['weekOfYear'])) {
-                    echo $day['weekOfYear'];
-                } else {
-                    echo "&nbsp";
-                }
-                echo "</div>";
-           
-                echo "<div class= 'holiday-info'";
-                if (isset($day['holiday'])) {
-                    foreach ($day['holiday'] as $value) {
-                        if ($value != '') {
-                            echo $value;
-                        } else {
-                            echo "&nbsp";
-                        }
-                    }
-                }
-                echo "</div>";
+            echo "<div class='day-num'>";
+            if (isset($day)) {
+                echo $day["day"];
+            } else {
+                echo "&nbsp;";
+            }
             echo "</div>";
+
+            echo "<div class='day-week'>";
+            if (!isset($day)) {
+                echo $day['weekOfYear'];
+            } else {
+                echo "&nbsp;";
+            }
+            echo "</div>";
+
+            echo "<div class='holiday-info'>";
+            if (isset($day) && isset($day['holiday'])) {
+                foreach ($day['holiday'] as $value) {
+                    echo $value . "<br>";
+                }
+            } else {
+                echo "&nbsp;";
+            }
+            echo "</div>";
+
+            echo "</div>"; // end of day-info
+            echo "</div>"; // end of box
         }
-        echo "</div>";
+
 
         ?>
         <h2><?= date(" Y 年 $month 月") ?></h2>
