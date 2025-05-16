@@ -130,9 +130,13 @@
         <h2>萬年曆製作</h2>
 
         <?php
-
+        if(isset($_GET['month'])){
+            $month=$_GET['month'];
+        }else{
+            $month=date("m");
+        }
         //設定月份
-        $month = 5;
+        // $month = 4;
 
         //取得今天日期
         $today = date("Y-$month-d");
@@ -190,7 +194,16 @@
         // echo "<pre>";
         // print_r($monthDays);
         // echo "</pre>";
-        
+        ?>
+
+        <!-- 製作按鈕 上一個月下一個月 -->
+        <div style="display:flex; width: 60%; margin: 0 auto; justify-content: space-between;">
+            <a href="?">上一個月</a>
+            <a href="?">下一個月</a>
+        </div>
+
+
+        <?php
         //建立日曆外框及星期標題列
         echo "<div class='box-container'>";
         echo "<div class='th-box'>日</div>";
@@ -207,15 +220,15 @@
             echo "<div class='day-info'>";
 
             echo "<div class='day-num'>";
-            if (isset($day)) {
-                echo $day["day"];
+            if (isset(($day['day']))) {
+                echo $day['day'];
             } else {
                 echo "&nbsp;";
             }
             echo "</div>";
 
             echo "<div class='day-week'>";
-            if (!isset($day)) {
+            if (isset($day['weekOfYear'])) {
                 echo $day['weekOfYear'];
             } else {
                 echo "&nbsp;";
